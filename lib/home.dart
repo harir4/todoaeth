@@ -152,39 +152,4 @@ class _HomeState extends State<Home> {
       },
     );
   }
-
-  void editItem(context, index) {
-    String updatedItem = 'Updated Item';
-    showDialog(
-      context: context,
-      builder: (context) {
-        final textFieldController =
-            TextEditingController(text: Note.list[index]);
-        return AlertDialog(
-          title: Text('Edit Item'),
-          content: TextField(
-            controller: textFieldController,
-            decoration: InputDecoration(hintText: 'Item Name'),
-          ),
-          actions: [
-            TextButton(
-              child: Text('Cancel'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: Text('Save'),
-              onPressed: () {
-                setState(() {
-                  Note.list[index] = textFieldController.text;
-                });
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
 }
